@@ -23,7 +23,7 @@ public class GraphController : MonoBehaviour
 
         finalPath = GetPath(startNode, endNode);
         Debug.Log(finalPath.GetPath());
-        pathLineRenderer.DrawPath(finalPath.nodes);
+        pathLineRenderer.DrawPath(finalPath.nodes, Color.red);
     }
 
     void GetInputNodes() {
@@ -99,7 +99,7 @@ public class GraphController : MonoBehaviour
                 points.Add(c);
             }
             points.Add(endNode);
-            bridgesLineRenderer.DrawBridges(points);
+            bridgesLineRenderer.DrawPath(points, Color.yellow);
         }
     }
 }

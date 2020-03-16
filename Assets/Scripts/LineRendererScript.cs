@@ -23,7 +23,7 @@ public class LineRendererScript : MonoBehaviour
         lineRenderer.colorGradient = gradient;
     }
 
-    public void DrawPath(List<Node> path) {
+    public void DrawPath(List<Node> path, Color color) {
         LineRenderer lineRenderer = gameObject.GetComponent<LineRenderer>();
         var points = new Vector3[path.Count];
         lineRenderer.positionCount = points.Length;
@@ -32,21 +32,4 @@ public class LineRendererScript : MonoBehaviour
         }
     }
 
-    public void DrawBridges(List<Node> path) {
-        LineRenderer lineRenderer = gameObject.GetComponent<LineRenderer>();
-
-        float alpha = 1.0f;
-        Gradient gradient = new Gradient();
-        gradient.SetKeys(
-            new GradientColorKey[] { new GradientColorKey(c1, 0.0f), new GradientColorKey(c1, 1.0f) },
-            new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(alpha, 1.0f) }
-        );
-        lineRenderer.colorGradient = gradient;
-
-        var points = new Vector3[path.Count];
-        lineRenderer.positionCount = points.Length;
-        for (int i = 0; i < path.Count; i++) {
-            lineRenderer.SetPosition(i, path[i].transform.position);
-        }
-    }
 }
