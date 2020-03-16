@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Linerenderer : MonoBehaviour
+public class LineRendererScript : MonoBehaviour
 {
     Color c1 = Color.yellow;
     Color c2 = Color.red;
-     public int lengthOfLineRenderer = 20;
+    int lengthOfLineRenderer;
 
     void Start() {
         LineRenderer lineRenderer = gameObject.GetComponent<LineRenderer>();
@@ -17,19 +17,36 @@ public class Linerenderer : MonoBehaviour
         float alpha = 1.0f;
         Gradient gradient = new Gradient();
         gradient.SetKeys(
-            new GradientColorKey[] { new GradientColorKey(c1, 0.0f), new GradientColorKey(c2, 1.0f) },
+            new GradientColorKey[] { new GradientColorKey(c2, 0.0f), new GradientColorKey(c2, 1.0f) },
             new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(alpha, 1.0f) }
         );
         lineRenderer.colorGradient = gradient;
     }
 
-    public void Drawline(List<Node> path) {
+    public void DrawPath(List<Node> path) {
         LineRenderer lineRenderer = gameObject.GetComponent<LineRenderer>();
         var points = new Vector3[path.Count];
         lineRenderer.positionCount = points.Length;
         for (int i = 0; i < path.Count; i++) {
             lineRenderer.SetPosition(i, path[i].transform.position);
         }
+    }
 
+    public void DrawBridges(List<Node> path) {
+        LineRenderer lineRenderer = gameObject.GetComponent<LineRenderer>();
+
+        float alpha = 1.0f;
+        Gradient gradient = new Gradient();
+        gradient.SetKeys(
+            new GradientColorKey[] { new GradientColorKey(c1, 0.0f), new GradientColorKey(c1, 1.0f) },
+            new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(alpha, 1.0f) }
+        );
+        lineRenderer.colorGradient = gradient;
+
+        var points = new Vector3[path.Count];
+        lineRenderer.positionCount = points.Length;
+        for (int i = 0; i < path.Count; i++) {
+            lineRenderer.SetPosition(i, path[i].transform.position);
+        }
     }
 }

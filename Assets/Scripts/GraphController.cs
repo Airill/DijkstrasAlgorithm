@@ -8,16 +8,26 @@ public class GraphController : MonoBehaviour
 {
     public Node startNode;
     public Node endNode;
-    public List<Node> m_Nodes;
+    public List<Node> inputNodes;
     List<Node> visitedNodes;
     float dist;
-    public Linerenderer lineRenderer;
+    public LineRendererScript pathLineRenderer;
+    public LineRendererScript bridgesLineRenderer;
+
     private Path finalPath;
 
     private void Start() {
+        GetInputNodes();
+
+       // DrawAllBridges(inputNodes);
+
         finalPath = GetPath(startNode, endNode);
         Debug.Log(finalPath.GetPath());
-        lineRenderer.Drawline(finalPath.nodes);
+        pathLineRenderer.DrawPath(finalPath.nodes);
+    }
+
+    void GetInputNodes() {
+        inputNodes = gameObject.GetComponentsInChildren<Node>().ToList();
     }
 
     public Path GetPath(Node start, Node end) {
@@ -40,8 +50,8 @@ public class GraphController : MonoBehaviour
 
          Dictionary<Node, float> distances = new Dictionary<Node, float>();
 
-        for (int i = 0; i < m_Nodes.Count; i++) {
-            Node node = m_Nodes[i];
+        for (int i = 0; i < inputNodes.Count; i++) {
+            Node node = inputNodes[i];
             unvisited.Add(node);
             distances.Add(node, float.MaxValue);
         }
@@ -76,7 +86,22 @@ public class GraphController : MonoBehaviour
         }
         path.SetPathLength();
         return path;
-
     }
 
+    void DrawAllBridges(List<Node> nodes) {
+        //  List<Vector3> points = new List<Vector3>();
+        List<Node> points = new List<Node>();
+        points.Add(startNode);
+
+        foreach (Node n in nodes) {
+            List<Node> con = n.connections;
+            foreach ( Node c in con) {
+                points.Add(c);
+            }
+            points.Add(endNode);
+            bridgesLineRenderer.DrawBridges(points);
+        }
+    }
 }
+
+
