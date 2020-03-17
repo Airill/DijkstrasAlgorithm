@@ -11,12 +11,13 @@ public class GraphController : MonoBehaviour
     public List<Node> inputNodes;
     List<Node> visitedNodes;
     float dist;
-    public LineRendererScript pathLineRenderer;
-    public LineRendererScript bridgesLineRenderer;
+     LineRendererScript pathLineRenderer;
+  //  public LineRendererScript bridgesLineRenderer;
 
     private Path finalPath;
 
     private void Start() {
+        pathLineRenderer = FindObjectOfType<LineRendererScript>();
         GetInputNodes();
 
        // DrawAllBridges(inputNodes);
@@ -87,7 +88,7 @@ public class GraphController : MonoBehaviour
         path.SetPathLength();
         return path;
     }
-
+    /*
     void DrawAllBridges(List<Node> nodes) {
         //  List<Vector3> points = new List<Vector3>();
         List<Node> points = new List<Node>();
@@ -101,7 +102,7 @@ public class GraphController : MonoBehaviour
             points.Add(endNode);
             bridgesLineRenderer.DrawPath(points, Color.yellow);
         }
-    }
+    } */
 }
 
 

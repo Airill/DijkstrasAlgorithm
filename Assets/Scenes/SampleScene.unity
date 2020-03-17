@@ -151,7 +151,7 @@ PrefabInstance:
     - target: {fileID: 6666987400971729269, guid: ba1fb91f21c77f64d84a7b2cf05d2c67,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.1
+      value: -0.75
       objectReference: {fileID: 0}
     - target: {fileID: 6666987400971729269, guid: ba1fb91f21c77f64d84a7b2cf05d2c67,
         type: 3}
@@ -341,7 +341,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &551595211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -674,7 +674,7 @@ PrefabInstance:
     - target: {fileID: 6666987400971729269, guid: ba1fb91f21c77f64d84a7b2cf05d2c67,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.353
+      value: 5.17
       objectReference: {fileID: 0}
     - target: {fileID: 6666987400971729269, guid: ba1fb91f21c77f64d84a7b2cf05d2c67,
         type: 3}
@@ -795,8 +795,6 @@ MonoBehaviour:
   startNode: {fileID: 1516171406}
   endNode: {fileID: 190743357}
   inputNodes: []
-  pathLineRenderer: {fileID: 2145318085}
-  bridgesLineRenderer: {fileID: 551595211}
 --- !u!4 &1849511280
 Transform:
   m_ObjectHideFlags: 0
@@ -954,7 +952,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2145318084}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1067317, y: -0.0116119385, z: 0.95652723}
+  m_LocalPosition: {x: 1.72, y: -0.0116119385, z: 0.95652723}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
