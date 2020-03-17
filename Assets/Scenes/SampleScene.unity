@@ -828,8 +828,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2145318087}
-  - component: {fileID: 2145318086}
   - component: {fileID: 2145318085}
+  - component: {fileID: 2145318086}
   m_Layer: 0
   m_Name: PathLineRenderer
   m_TagString: Untagged

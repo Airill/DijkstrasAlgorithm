@@ -8,7 +8,7 @@ public class LineRendererScript : MonoBehaviour
     Color c2 = Color.red;
     int lengthOfLineRenderer;
 
-    void Start() {
+    void Awake() {
         LineRenderer lineRenderer = gameObject.GetComponent<LineRenderer>();
         lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
         lineRenderer.widthMultiplier = 0.2f;
